@@ -29,7 +29,6 @@ class HomeController extends Controller
         $Exposition = Exposition::all()->count();
         $Complaint = Complaint::all()->count();
         $Subscribers = Subscribers::all()->count();
-//dd([$Exposition, $Complaint]);
         return view('home', compact(['Exposition', 'Complaint', 'Subscribers']));
     }
 }
