@@ -43,7 +43,9 @@ class ExpositionController extends Controller
     {
         $image = $this->saveImage($request);
         $request->request->add(['image' => $image]);
-        $data = Exposition::create($request->all());
+        $data = new Exposition($request->all());
+        $data->image = $image;
+        $data->save();
         return redirect()->route('Exposition.index')
             ->with('success', 'Exposition created successfully.');
     }
@@ -82,9 +84,15 @@ class ExpositionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $image = $this->saveImage($request);
-//        $file = $request->request->(['image' => $image]);
         $exposition = Exposition::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $image = $this->saveImage($request);
+            $request->request->add(['image' => $image]);
+            $exposition->update($request->all());
+
+        }
+//        $file = $request->request->(['image' => $image]);
         $exposition->update($request->all());
         return redirect()->route('exposition.index')
             ->with('success', 'updated successfully');

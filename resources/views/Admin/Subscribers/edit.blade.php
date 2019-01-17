@@ -73,24 +73,26 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="halls">Halls:
-                        </label><select id="halls" name="halls" class="form-control form-control-sm">
+                        <label for="halls">Halls: </label>
+                        <select id="halls" name="halls" class="form-control form-control-sm">
                             @if (isset($item))
-                                value="{{$item->halls}}"
-                            @endif>
-                            <option value="{{$item->halls}}">@if($item->halls)
-                                    {{$item->halls}}
-                                @else
-                                    null
-                                @endif
-                            </option>
-                            <option value="halls_one">halls_one</option>
-                            <option value="halls_two">halls_two</option>
-                            <option value="halls_three">halls_three</option>
-                            <option value="halls_fore">halls_fore</option>
-                            <option value="halls_five">halls_five</option>
-                            <option value="halls_six">halls_six</option>
-                            <option value="out">out</option>
+                                {{--value="{{$item->halls}}"--}}
+                                <option value="{{$item->halls}}">
+                                    {{--@endif>--}}
+
+                                    {{--@if($item->halls)--}}
+                                        {{$item->halls}}
+                                    {{--@else--}}
+                                        {{--null--}}
+                            @endif
+                                </option>
+                                <option value="halls_one">halls_one</option>
+                                <option value="halls_two">halls_two</option>
+                                <option value="halls_three">halls_three</option>
+                                <option value="halls_fore">halls_fore</option>
+                                <option value="halls_five">halls_five</option>
+                                <option value="halls_six">halls_six</option>
+                                <option value="out">out</option>
                         </select>
                     </div>
 

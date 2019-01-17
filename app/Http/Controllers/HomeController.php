@@ -30,6 +30,6 @@ class HomeController extends Controller
         $Complaint = Complaint::all()->count();
         $Subscribers = Subscribers::all()->count();
 //dd([$Exposition, $Complaint]);
-        return view('home', compact(['Exposition', '', 'Complaint', 'Subscribers']));
+        return view('home', compact(['Exposition', 'Complaint', 'Subscribers']));
     }
 }
