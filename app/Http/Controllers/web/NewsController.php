@@ -45,9 +45,8 @@ class NewsController extends Controller
         $news = new News($request->all());
         $news->image = $image;
         $news->save();
-        if ($request->is_notification) {
-            $note = $this->send_notification($request->Title_ar, $request->topic_ar);
-//            dd($note);
+        if ($request->is_notification == 1) {
+            $this->send_notification($request->Title_ar, $request->topic_ar);
             return redirect()->route('News.index')
                 ->with('success', 'news created successfully.');
         }
