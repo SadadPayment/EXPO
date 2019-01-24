@@ -23,11 +23,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Route::prefix('admin')->group(function () {
-    Route::resource('News', 'web\NewsController')->middleware('auth');
-    Route::resource('Sponsors', 'web\SponsorsController')->middleware('auth');
-    Route::resource('Exposition', 'web\ExpositionController')->middleware('auth');
-    Route::resource('CatExposition', 'web\CategoryExpositionController')->middleware('auth');
-    Route::resource('Archive', 'web\ArchiveController')->middleware('auth');
-    Route::resource('ComingExpo', 'web\ComingExpoController')->middleware('auth');
-    Route::resource('Subscribers', 'web\SubscribersController')->middleware('auth');
+Route::resource('News', 'web\NewsController')->middleware('auth');
+Route::resource('Sponsors', 'web\SponsorsController')->middleware('auth');
+Route::resource('Exposition', 'web\ExpositionController')->middleware('auth');
+Route::resource('CatExposition', 'web\CategoryExpositionController')->middleware('auth');
+Route::resource('Archive', 'web\ArchiveController')->middleware('auth');
+Route::resource('ComingExpo', 'web\ComingExpoController')->middleware('auth');
+Route::resource('Subscribers', 'web\SubscribersController')->middleware('auth');
+Route::resource('Setting', 'SettingController')->middleware('auth');
 //});

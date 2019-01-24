@@ -16,20 +16,20 @@
         <thead>
         <tr>
             <th scope="col">#id</th>
-            <th scope="col">Name Ar</th>
-            <th scope="col">Name En</th>
+            <th scope="col">Title Ar</th>
+            <th scope="col">Title En</th>
             <th scope="col">Image</th>
             <th scope="col">edit\delete</th>
 
         </tr>
         </thead>
         <tbody>
-        @foreach($Exposition as $item)
+        @foreach($setting as $item)
             <tr>
                 <th scope="row">{{$item->id}}</th>
                 <td>{{$item->Name_ar}}</td>
                 <td>{{$item->Name_en}}</td>
-                <td><img src="{{asset('/images/Exposition/')}}/{{$item->image}}" height="50" width="50"></td>
+                <td><img src="{{asset('/images/Setting/')}}/{{$item->image}}" height="50" width="50"></td>
 
                 <td>
                     <a class="btn btn-waring btn-xs" href="Exposition/{{$item->id}}/edit">

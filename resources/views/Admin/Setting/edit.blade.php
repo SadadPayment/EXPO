@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Setting')
 
 @section('content_header')
-    <h1>Exhibition: </h1>
+    <h1>Setting: </h1>
 @stop
 
 @section('content')
@@ -16,16 +16,16 @@
             <div class="box-header with-border">
                 <h3 class="box-title">
                     <span><i class="fa fa-edit"></i></span>
-                    <span>{{ isset($item)? 'Edit ' . $item->Name_en : 'Add Exhibition' }}</span>
+                    <span>{{ isset($item)? 'Edit ' . $item->title_en : 'Setting' }}</span>
                 </h3>
             </div>
 
             <div class="box-body ">
 
                 <form method="post" enctype="multipart/form-data"
-                      @if (isset($item)) action="{{route('Exposition.update', $item->id)}}"
+                      @if (isset($item)) action="{{route('Setting.update', $item->id)}}"
                       @else
-                      action="{{ route('Exposition.store')}}"
+                      action="{{ route('Setting.store')}}"
                         @endif>
                     @if(isset($item))
                         {{ method_field('PATCH') }}
@@ -34,13 +34,12 @@
                     @csrf
 
 
-
                     <div class="form-group col-md-6">
                         <label for="image">Image Upload: </label>
                         <input required type="file" name="image" class="form-control" id="image"
                                @if (isset($item))
                                value="{{$item->image}}">
-                        <img src="{{asset('/images/News/')}}/{{$item->image}}" height="50" width="50">
+                        <img src="{{asset('/images/Setting/')}}/{{$item->image}}" height="50" width="50">
                         @endif
                     </div>
 
@@ -76,21 +75,19 @@
                     </div>
 
 
-                        <div class="form-group col-md-6">
-                            <button type="submit" class="btn btn-primary">@if (isset($item))
-                                    Update
-                                @else
-                                    Save
-                                @endif</button>
-                        </div>
-                    </row>
-
+                    <div class="form-group col-md-6">
+                        <button type="submit" class="btn btn-primary">@if (isset($item))
+                                Update
+                            @else
+                                Save
+                            @endif</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
-    {{--Exposition Cat:--}}
+    {{--Setting Cat:--}}
 
     {{--</div>--}}
 @stop
