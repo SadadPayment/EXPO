@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|CategoryExposition whereNameEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CategoryExposition whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\Exposition $exposition
  */
 class CategoryExposition extends Model
 {

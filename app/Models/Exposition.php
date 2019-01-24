@@ -35,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Exposition whereTitleEn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Exposition whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\CategoryExposition[] $cat
  */
 class Exposition extends Model
 {

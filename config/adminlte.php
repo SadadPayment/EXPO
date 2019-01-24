@@ -139,7 +139,6 @@ return [
             'text' => 'Setting',
             'url' => 'Setting',
             'icon' => 'share',
-//            'label'       => 4,
             'label_color' => 'success',
             'submenu' => [
                 [
@@ -203,7 +202,7 @@ return [
             'label_color' => 'success',
             'submenu' => [
                 [
-                    'text' => 'Show News',
+                    'text' => 'Show News :',
                     'url' => 'News',
                 ], [
                     'text' => 'Add News',
