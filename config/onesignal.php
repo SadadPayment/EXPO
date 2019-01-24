@@ -19,5 +19,5 @@ return array(
 	|
 	*/
     'rest_api_key' => 'MTdmOGU4NzYtODMzMi00MzE3LThhNmUtNjg1MDg5ZDkxMjUy',
-    'user_auth_key' => 'YOUR-USER-AUTH-KEY'
+    'user_auth_key' => 'Mzc4Mjg5NzYtZjZmMC00NDE0LThiY2ItYjgyMjNhZjJhYzc5'
 );

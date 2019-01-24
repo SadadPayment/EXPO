@@ -24,6 +24,7 @@ Route::prefix('v2')->group(function () {
     Route::resource('/suggestion', 'api\SuggestionController');
 });
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

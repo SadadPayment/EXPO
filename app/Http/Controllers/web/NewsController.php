@@ -5,6 +5,9 @@ namespace App\Http\Controllers\web;
 use App\Models\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+//use Berkayk\OneSignal;
+use OneSignal;
+
 
 class NewsController extends Controller
 {
@@ -42,6 +45,12 @@ class NewsController extends Controller
         $news = new News($request->all());
         $news->image = $image;
         $news->save();
+        if ($request->is_notification) {
+            $note = $this->send_notification($request->Title_ar, $request->topic_ar);
+//            dd($note);
+            return redirect()->route('News.index')
+                ->with('success', 'news created successfully.');
+        }
         return redirect()->route('News.index')
             ->with('success', 'news created successfully.');
     }
@@ -116,5 +125,22 @@ class NewsController extends Controller
             return $name;
         }
         return false;
+    }
+
+    /**
+     * @param  \Berkayk\OneSignal
+     *
+     */
+    public function send_notification($title, $body)
+    {
+        $note = OneSignal::sendNotificationToAll(
+            $title,
+            $url = '',
+            $data = false,
+            $buttons = null,
+            $schedule = null
+        );
+
+        return $note;
     }
 }

@@ -37,6 +37,6 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     protected $table = 'ex_news';
-    protected $fillable =['Title_ar', 'Title_en', 'topic_ar', 'topic_en', 'image', 'is_notification', ''];
+    protected $fillable =['Title_ar', 'Title_en', 'topic_ar', 'topic_en', 'image', 'is_notification'];
     //
 }
