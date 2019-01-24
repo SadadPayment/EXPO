@@ -30,5 +30,5 @@ Route::resource('CatExposition', 'web\CategoryExpositionController')->middleware
 Route::resource('Archive', 'web\ArchiveController')->middleware('auth');
 Route::resource('ComingExpo', 'web\ComingExpoController')->middleware('auth');
 Route::resource('Subscribers', 'web\SubscribersController')->middleware('auth');
-Route::resource('Setting', 'SettingController')->middleware('auth');
+Route::resource('WebSetting', 'SettingController')->middleware('auth');
 //});

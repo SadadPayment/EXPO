@@ -137,16 +137,16 @@ return [
         'Setting',
         [
             'text' => 'Setting',
-            'url' => 'Setting',
+            'url' => 'WebSetting',
             'icon' => 'share',
             'label_color' => 'success',
             'submenu' => [
                 [
                     'text' => 'Show Setting',
-                    'url' => 'Setting',
+                    'url' => 'WebSetting',
                 ], [
                     'text' => 'Add Setting',
-                    'url' => 'Setting/create',
+                    'url' => 'WebSetting/create',
                 ],
 
             ]
@@ -207,6 +207,9 @@ return [
                 ], [
                     'text' => 'Add News',
                     'url' => 'News/create',
+                ], [
+                    'text' => 'Web Setting',
+                    'url' => 'WebSetting',
                 ],
 
             ]
