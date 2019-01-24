@@ -19,9 +19,9 @@ Route::prefix('v2')->group(function () {
     Route::resource('/complaint', 'api\ComplaintController');
     Route::resource('/exposition', 'api\ExpositionController');
     Route::resource('/participant', 'api\ParticipantController');
-    Route::resource('/Sponsors', 'api\SponsorsController');
+    Route::resource('/sponsors', 'api\SponsorsController');
     Route::resource('/subscribers', 'api\SubscribersController');
-    Route::resource('/Suggestion', 'api\SuggestionController');
+    Route::resource('/suggestion', 'api\SuggestionController');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
