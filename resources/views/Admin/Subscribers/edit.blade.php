@@ -62,7 +62,10 @@
 
                     <div class="form-group">
                         <label for="image">Image Upload: </label>
-                        <input required type="file" name="image" class="form-control" id="image"
+                        <input type="file" name="image" class="form-control" id="image"
+                               @if (isset($item))
+                               required
+                               @endif
                                @if (isset($item))
                                value="{{$item->image}}">
                         <img src="{{asset('/images/Subscribers/')}}/{{$item->image}}" height="50" width="50">
@@ -81,10 +84,10 @@
                                     {{--@endif>--}}
 
                                     {{--@if($item->halls)--}}
-                                        {{$item->halls}}
+                                    {{$item->halls}}
                                     {{--@else--}}
-                                        {{--null--}}
-                            @endif
+                                    {{--null--}}
+                                    @endif
                                 </option>
                                 <option value="halls_one">halls_one</option>
                                 <option value="halls_two">halls_two</option>
