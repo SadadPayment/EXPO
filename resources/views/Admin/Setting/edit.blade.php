@@ -23,9 +23,9 @@
             <div class="box-body ">
 
                 <form method="post" enctype="multipart/form-data"
-                      @if (isset($item)) action="{{route('Setting.update', $item->id)}}"
+                      @if (isset($item)) action="{{route('WebSetting.update', $item->id)}}"
                       @else
-                      action="{{ route('Setting.store')}}"
+                      action="{{ route('WebSetting.store')}}"
                         @endif>
                     @if(isset($item))
                         {{ method_field('PATCH') }}
@@ -36,9 +36,12 @@
 
                     <div class="form-group col-md-6">
                         <label for="image">Image Upload: </label>
-                        <input required type="file" name="image" class="form-control" id="image"
+                        <input  type="file" name="image" class="form-control" id="image"
                                @if (isset($item))
-                               value="{{$item->image}}">
+                               value="{{$item->image}}"
+                                @else
+                                required
+                        >
                         <img src="{{asset('/images/Setting/')}}/{{$item->image}}" height="50" width="50">
                         @endif
                     </div>

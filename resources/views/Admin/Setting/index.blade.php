@@ -24,24 +24,27 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($setting as $item)
+        @if($item)
             <tr>
                 <th scope="row">{{$item->id}}</th>
-                <td>{{$item->Name_ar}}</td>
-                <td>{{$item->Name_en}}</td>
+                <td>{{$item->title_ar}}</td>
+                <td>{{$item->title_en}}</td>
                 <td><img src="{{asset('/images/Setting/')}}/{{$item->image}}" height="50" width="50"></td>
 
                 <td>
-                    <a class="btn btn-waring btn-xs" href="Exposition/{{$item->id}}/edit">
+                    <a class="btn btn-waring btn-xs" href="WebSetting/{{$item->id}}/edit">
                         <i class="fa fa-edit"></i></a>
-                    <form method="post" action="Exposition/{{$item->id}}">
+                    <form method="post" action="WebSetting/{{$item->id}}">
                         <input type="hidden" name="_method" value="DELETE">
                         {{csrf_field()}}
                         <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
                     </form>
                 </td>
             </tr>
-        @endforeach
+            @else
+            <h2>no Setting</h2> <a href="WebSetting/create"><p class="text-light-blue">Add Setting</p></a>
+            @endif
+        {{--@endforeach--}}
 
         </tbody>
     </table>

@@ -14,8 +14,11 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $setting = Setting::findOrFail(1);
-        return view('Admin.Setting.index', compact('setting'));
+        $item = Setting::first();
+//        if ($item) {
+        return view('Admin.Setting.index', compact('item'));
+//        }
+//        return redirect()->back();
 
     }
 
@@ -27,6 +30,7 @@ class SettingController extends Controller
     public function create()
     {
         return view('Admin.Setting.edit');
+//        echo "ff";
     }
 
     /**
@@ -42,7 +46,7 @@ class SettingController extends Controller
         $Setting = new Setting($request->all());
         $Setting->image = $image;
         $Setting->save();
-        return redirect()->route('Setting.index')
+        return redirect()->route('WebSetting.index')
             ->with('success', 'Setting created successfully.');
     }
 
@@ -54,8 +58,8 @@ class SettingController extends Controller
      */
     public function show($id)
     {
-        $Setting = Setting::findOrFail($id);
-        return view('Admin.Setting.item', compact('Setting'));
+        $item = Setting::findOrFail($id);
+        return view('Admin.Setting.item', compact('item'));
     }
 
     /**
@@ -86,11 +90,11 @@ class SettingController extends Controller
             $Setting->update($request->all());
             $Setting->image = $image;
             $Setting->save();
-            return redirect()->route('Setting.index')
+            return redirect()->route('WebSetting.index')
                 ->with('success', 'updated successfully');
         }
         $Setting->update($request->all());
-        return redirect()->route('Setting.index')
+        return redirect()->route('WebSetting.index')
             ->with('success', 'updated successfully');
     }
 
@@ -103,7 +107,7 @@ class SettingController extends Controller
     public function destroy($id)
     {
         Setting::destroy($id);
-        return redirect()->route('Setting.index')
+        return redirect()->route('WebSetting.index')
             ->with('field', 'Setting Deleted successfully.');
     }
 

@@ -30,5 +30,11 @@ Route::resource('CatExposition', 'web\CategoryExpositionController')->middleware
 Route::resource('Archive', 'web\ArchiveController')->middleware('auth');
 Route::resource('ComingExpo', 'web\ComingExpoController')->middleware('auth');
 Route::resource('Subscribers', 'web\SubscribersController')->middleware('auth');
+//Route::resource('ok', 'Web\AppSettingController')->middleware('auth');
 Route::resource('WebSetting', 'SettingController')->middleware('auth');
+//Route::get('WebSetting/create', 'SettingController@create')->middleware('auth');
+//Route::post('WebSetting', 'SettingController@store')->middleware('auth');
+//Route::get('WebSetting', function () {
+//    return response()->json('{kl.ml}');
+//});
 //});
