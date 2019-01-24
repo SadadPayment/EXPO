@@ -79,12 +79,19 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $file = $this->saveImage($request);
-        $request->request->add(['image' => $file]);
-        $archive = News::where('id', $id)->update([$request->all()]);
-
+        $news = News::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $image = $this->saveImage($request);
+            $request->request->add(['image' => $image]);
+            $news->update($request->all());
+            $news->image = $image;
+            $news->save();
+            return redirect()->route('News.index')
+                ->with('success', 'updated successfully');
+        }
+        $news->update($request->all());
         return redirect()->route('News.index')
-            ->with('success0', 'News Updated successfully.');
+            ->with('success', 'updated successfully');
     }
 
     /**

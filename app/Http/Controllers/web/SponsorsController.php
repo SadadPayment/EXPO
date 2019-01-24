@@ -80,12 +80,19 @@ class SponsorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $file = $this->saveImage($request);
-        $request->request->add(['image' => $file]);
-        $Sponsors = Sponsors::where('id', $id)->update([$request->all()]);
-
+        $sponsors = Sponsors::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $image = $this->saveImage($request);
+            $request->request->add(['image' => $image]);
+            $sponsors->update($request->all());
+            $sponsors->image = $image;
+            $sponsors->save();
+            return redirect()->route('Sponsors.index')
+                ->with('success', 'updated successfully');
+        }
+        $sponsors->update($request->all());
         return redirect()->route('Sponsors.index')
-            ->with('success', 'Sponsors Updated successfully.');
+            ->with('success', 'updated successfully');
     }
 
     /**

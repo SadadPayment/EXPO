@@ -52,7 +52,7 @@
                             <div id="Name1" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="Name_ar">Name Ar: </label>
-                                    <input type="text" class="form-control " name="Name_ar" id="Name_ar"
+                                    <input required type="text" class="form-control " name="Name_ar" id="Name_ar"
                                            placeholder="Name_ar"
                                            @if (isset($item))
                                            value="{{$item->Name_ar}}"
@@ -63,7 +63,7 @@
                             <div id="Name2" class="tab-pane fade">
                                 <div class="form-group col-md-6">
                                     <label for="Name_en">Name En: </label>
-                                    <input type="text" name="Name_en" class="form-control" id="Name_en"
+                                    <input required type="text" name="Name_en" class="form-control" id="Name_en"
                                            placeholder="Name_en"
                                            @if (isset($item))
                                            value="{{$item->Name_en}}"
@@ -75,7 +75,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="file_upload">File Upload: </label>
-                        <input type="file" name="file_upload" class="form-control" id="file_upload"
+                        <input required type="file" name="file_upload" class="form-control" id="file_upload"
                                @if (isset($item))
                                value="{{$item->file_upload}}">
                         <a href="{{asset('/files/coming/')}}/{{$item->file_upload}}"><span class="fa fa-file"></span>

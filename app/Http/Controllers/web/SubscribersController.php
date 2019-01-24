@@ -43,7 +43,7 @@ class SubscribersController extends Controller
         $Subscribers->image = $image;
         $Subscribers->save();
         return redirect()->route('Subscribers.index')
-            ->with('success', 'Subscribers created successfully.');
+            ->with('success', 'Exhibitors created successfully.');
     }
 
     /**
@@ -78,7 +78,19 @@ class SubscribersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sponsors = Subscribers::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $image = $this->saveImage($request);
+            $request->request->add(['image' => $image]);
+            $sponsors->update($request->all());
+            $sponsors->image = $image;
+            $sponsors->save();
+            return redirect()->route('Subscribers.index')
+                ->with('success', 'updated successfully');
+        }
+        $sponsors->update($request->all());
+        return redirect()->route('Subscribers.index')
+            ->with('success', 'updated successfully');
     }
 
     /**
@@ -86,11 +98,15 @@ class SubscribersController extends Controller
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy($id)
     {
-        //
+        Subscribers::destroy($id);
+        return redirect()->route('Subscribers.index')
+            ->with('field', 'Exhibitors deleted successfully');
     }
+
 
     public function saveImage($image_file)
     {

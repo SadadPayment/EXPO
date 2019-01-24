@@ -39,7 +39,7 @@
                             <div id="Title1" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="name">Title_ar: </label>
-                                    <input type="text" class="form-control" name="Title_ar" id="Title_ar"
+                                    <input required type="text" class="form-control" name="Title_ar" id="Title_ar"
                                            placeholder="Title_ar"
                                            @if (isset($item))
                                            value="{{$item->Title_ar}}"
@@ -50,7 +50,7 @@
                             <div id="Title2" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="weight">Title_en: </label>
-                                    <input type="text" name="Title_en" class="form-control" id="Title_en"
+                                    <input required type="text" name="Title_en" class="form-control" id="Title_en"
                                            placeholder="Title_en"
                                            @if (isset($item))
                                            value="{{$item->Title_en}}"
@@ -70,7 +70,7 @@
                             <div id="menu1" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="topic_ar">Topic Arabic: </label>
-                                    <textarea name="topic_ar" class="form-control" rows="3"
+                                    <textarea required name="topic_ar" class="form-control" rows="3"
                                               placeholder="Topic Arabic ...">
                                         @if (isset($item))
                                          {{$item->topic_ar}}
@@ -94,7 +94,7 @@
 
                     <div class="form-group">
                         <label for="image">Image Upload: </label>
-                        <input type="file" name="image" class="form-control" id="image"
+                        <input required type="file" name="image" class="form-control" id="image"
                                placeholder=""
                                @if (isset($item))
                                value="{{$item->image}}">

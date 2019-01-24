@@ -79,12 +79,19 @@ class ComingExpoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $file = $this->saveFile($request);
-        $request->request->add(['file_upload' => $file]);
-        $ComingExpo = ComingExpo::where('id', $id)->update([$request->all()]);
-
+        $coming_expo = ComingExpo::findOrFail($id);
+        if ($request->hasFile('file_upload')) {
+            $file = $this->saveFile($request);
+            $request->request->add(['file_upload' => $file]);
+            $coming_expo->update($request->all());
+            $coming_expo->file_upload = $file;
+            $coming_expo->save();
+            return redirect()->route('ComingExpo.index')
+                ->with('success', 'updated successfully');
+        }
+        $coming_expo->update($request->all());
         return redirect()->route('ComingExpo.index')
-            ->with('success', 'Coming Expo Updated successfully.');
+            ->with('success', 'updated successfully');
     }
 
     /**

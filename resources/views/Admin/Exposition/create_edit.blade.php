@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Exposition: </h1>
+    <h1>Exhibition: </h1>
 @stop
 
 @section('content')
@@ -16,7 +16,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title">
                     <span><i class="fa fa-edit"></i></span>
-                    <span>{{ isset($item)? 'Edit ' . $item->Name_en : 'Add Exposition' }}</span>
+                    <span>{{ isset($item)? 'Edit ' . $item->Name_en : 'Add Exhibition' }}</span>
                 </h3>
             </div>
 
@@ -56,8 +56,9 @@
                             <div id="Name1" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="Name_ar">Name_ar: </label>
-                                    <input type="text" class="form-control " name="Name_ar" id="Name_ar"
+                                    <input required type="text" class="form-control " name="Name_ar" id="Name_ar"
                                            placeholder="Name_ar"
+                                           required
                                            @if (isset($item))
                                            value="{{$item->Name_ar}}"
                                             @endif>
@@ -67,7 +68,7 @@
                             <div id="Name2" class="tab-pane fade">
                                 <div class="form-group col-md-6">
                                     <label for="Name_en">Name_en: </label>
-                                    <input type="text" name="Name_en" class="form-control" id="Name_en"
+                                    <input required type="text" name="Name_en" class="form-control" id="Name_en"
                                            placeholder="Name_en"
                                            @if (isset($item))
                                            value="{{$item->Name_en}}"
@@ -79,7 +80,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="image">Image Upload: </label>
-                        <input type="file" name="image" class="form-control" id="image"
+                        <input required type="file" name="image" class="form-control" id="image"
                                @if (isset($item))
                                value="{{$item->image}}">
                         <img src="{{asset('/images/News/')}}/{{$item->image}}" height="50" width="50">
@@ -96,7 +97,7 @@
                             <div id="Title1" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="Name_ar">Title Ar: </label>
-                                    <input type="text" class="form-control" name="title_ar" id="title_ar"
+                                    <input required type="text" class="form-control" name="title_ar" id="title_ar"
                                            placeholder="title ar"
                                            @if (isset($item))
                                            value="{{$item->title_ar}}"
@@ -107,7 +108,7 @@
                             <div id="Title2" class="tab-pane fade">
                                 <div class="form-group col-md-6">
                                     <label for="Name_en">Title En: </label>
-                                    <input type="text" name="title_en" class="form-control" id="title_en"
+                                    <input required type="text" name="title_en" class="form-control" id="title_en"
                                            placeholder="Title by en"
                                            @if (isset($item))
                                            value="{{$item->title_en}}"
@@ -126,7 +127,7 @@
                                     <i class="fa fa-calendar"></i>
                                 </div>
 
-                                <label for="start_date"></label><input type="date" id="start_date"
+                                <label for="start_date"></label><input required type="date" id="start_date"
                                                                        name="start_date"
                                                                        class="form-control "
                                                                        value="{{\Carbon\Carbon::now()->format('Y-m-d')}}"
@@ -144,7 +145,7 @@
                                     <i class="fa fa-calendar"></i>
                                 </div>
 
-                                <label for="date_end"></label><input type="date" id="date_end"
+                                <label for="date_end"></label><input required type="date" id="date_end"
                                                                      name="date_end"
                                                                      class="form-control "
                                                                      value="{{\Carbon\Carbon::now()->format('Y-m-d')}}"

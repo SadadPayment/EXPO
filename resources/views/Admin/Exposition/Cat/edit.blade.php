@@ -49,7 +49,7 @@
                             <div id="CatName1" class="tab-pane fade">
                                 <div class="form-group col-md-4">
                                     <label for="Name_ar">Name_ar: </label>
-                                    <input type="text" class="form-control " name="Name_ar" id="Name_ar"
+                                    <input required type="text" class="form-control " name="Name_ar" id="Name_ar"
                                            placeholder="Name_ar"
                                            @if (isset($item))
                                            value="{{$item->Name_ar}}"
@@ -60,7 +60,7 @@
                             <div id="CatName2" class="tab-pane fade">
                                 <div class="form-group col-md-4">
                                     <label for="Name_en">Name_en: </label>
-                                    <input type="text" name="Name_en" class="form-control" id="Name_en"
+                                    <input required type="text" name="Name_en" class="form-control" id="Name_en"
                                            placeholder="Name_en"
                                            @if (isset($item))
                                            value="{{$item->Name_en}}"
@@ -79,7 +79,7 @@
                             <div id="Description1" class="tab-pane fade">
                                 <div class="form-group col-md-4">
                                     <label for="description_ar">الشرح بالعربي: </label>
-                                    <input type="text" class="form-control" name="description_ar"
+                                    <input required type="text" class="form-control" name="description_ar"
                                            id="description_ar"
                                            placeholder="الشرح بالعربي"
                                            @if (isset($item))
@@ -91,7 +91,7 @@
                             <div id="Description2" class="tab-pane fade">
                                 <div class="form-group col-md-4">
                                     <label for="description_en">Description by English: </label>
-                                    <input type="text" name="description_en" class="form-control"
+                                    <input required type="text" name="description_en" class="form-control"
                                            id="description_en"
                                            placeholder="Description by English"
                                            @if (isset($item))

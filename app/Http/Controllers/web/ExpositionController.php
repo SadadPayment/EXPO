@@ -47,7 +47,7 @@ class ExpositionController extends Controller
         $data->image = $image;
         $data->save();
         return redirect()->route('Exposition.index')
-            ->with('success', 'Exposition created successfully.');
+            ->with('success', 'Exhibitors created successfully.');
     }
 
     /**
@@ -85,17 +85,19 @@ class ExpositionController extends Controller
     public function update(Request $request, $id)
     {
         $exposition = Exposition::findOrFail($id);
-
         if ($request->hasFile('image')) {
             $image = $this->saveImage($request);
             $request->request->add(['image' => $image]);
             $exposition->update($request->all());
-
+            $exposition->image = $image;
+            $exposition->save();
+            return redirect()->route('Exposition.index')
+                ->with('success', 'updated successfully');
         }
-//        $file = $request->request->(['image' => $image]);
         $exposition->update($request->all());
-        return redirect()->route('exposition.index')
+        return redirect()->route('Exposition.index')
             ->with('success', 'updated successfully');
+
     }
 
     /**
@@ -107,7 +109,7 @@ class ExpositionController extends Controller
     public function destroy($id)
     {
         Exposition::destroy($id);
-        return redirect()->route('exposition.index')
+        return redirect()->route('Exposition.index')
             ->with('field', 'Exposition deleted successfully');
 
     }

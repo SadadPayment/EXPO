@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Expo</b>LTE',
+    'logo' => '<b>Expo </b>LTE',
 
     'logo_mini' => '<b>Expo</b>LT',
 
@@ -109,24 +109,24 @@ return [
     */
 
     'menu' => [
-        'Exposition',
+        'Exhibition',
         [
-            'text' => 'Exposition',
+            'text' => 'Exhibition',
             'url' => 'Exposition',
             'icon' => 'file',
 //            'label'       => 4,
             'label_color' => 'success',
             'submenu' => [
                 [
-                    'text' => 'Show Exposition',
+                    'text' => 'Show Exhibition',
                     'url' => 'Exposition',
                 ],
                 [
-                    'text' => 'Add Exposition',
+                    'text' => 'Add Exhibition',
                     'url' => 'Exposition/create',
                 ],
                 [
-                    'text' => 'Add Exposition Category',
+                    'text' => 'Add Exhibition Category',
                     'url' => 'CatExposition/create',
                 ],
             ]
@@ -153,19 +153,19 @@ return [
         ],
 
 
-        'Subscribers',
+        'Exhibitors',
         [
-            'text' => 'Subscribers',
+            'text' => 'Exhibitors',
             'url' => 'Subscribers',
             'icon' => 'share',
 //            'label'       => 4,
             'label_color' => 'success',
             'submenu' => [
                 [
-                    'text' => 'Show Subscribers',
+                    'text' => 'Show Exhibitors',
                     'url' => 'Subscribers',
                 ], [
-                    'text' => 'Add Subscribers',
+                    'text' => 'Add Exhibitors',
                     'url' => 'Subscribers/create',
                 ],
 

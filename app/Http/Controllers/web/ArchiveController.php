@@ -66,7 +66,7 @@ class ArchiveController extends Controller
      */
     public function edit($id)
     {
-          $item = Archive::findOrFail($id);
+        $item = Archive::findOrFail($id);
         return view('Admin.Archive.edit', compact('item'));
     }
 
@@ -79,12 +79,19 @@ class ArchiveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $file = $this->saveFile($request);
-        $request->request->add(['file_upload' => $file]);
-        $archive = Archive::where('id', $id)->update([$request->all()]);
-
+        $archive = Archive::findOrFail($id);
+        if ($request->hasFile('file_upload')) {
+            $file = $this->saveFile($request);
+            $request->request->add(['file_upload' => $file]);
+            $archive->update($request->all());
+            $archive->file_upload = $file;
+            $archive->save();
+            return redirect()->route('Archive.index')
+                ->with('success', 'updated successfully');
+        }
+        $archive->update($request->all());
         return redirect()->route('Archive.index')
-            ->with('success', 'Archive Updated successfully.');
+            ->with('success', 'updated successfully');
     }
 
     /**

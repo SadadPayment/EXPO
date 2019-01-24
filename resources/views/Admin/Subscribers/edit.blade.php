@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Subscribers')
+@section('title', 'Exhibitors')
 
 @section('content_header')
-    <h1>Subscribers: </h1>
+    <h1>Exhibitors: </h1>
 @stop
 
 @section('content')
@@ -39,7 +39,7 @@
                             <div id="Title1" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="Name_ar">Name_ar: </label>
-                                    <input type="text" class="form-control" name="Name_ar" id="Name_ar"
+                                    <input required type="text" class="form-control" name="Name_ar" id="Name_ar"
                                            placeholder="Name_ar"
                                            @if (isset($item))
                                            value="{{$item->Name_ar}}"
@@ -50,7 +50,7 @@
                             <div id="Title2" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="Name_en">Name_en: </label>
-                                    <input type="text" name="Name_en" class="form-control" id="Name_en"
+                                    <input required type="text" name="Name_en" class="form-control" id="Name_en"
                                            placeholder="Name_en"
                                            @if (isset($item))
                                            value="{{$item->Name_en}}"
@@ -62,7 +62,7 @@
 
                     <div class="form-group">
                         <label for="image">Image Upload: </label>
-                        <input type="file" name="image" class="form-control" id="image"
+                        <input required type="file" name="image" class="form-control" id="image"
                                @if (isset($item))
                                value="{{$item->image}}">
                         <img src="{{asset('/images/Subscribers/')}}/{{$item->image}}" height="50" width="50">
@@ -98,7 +98,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="website">Website: </label>
-                        <input type="url" name="website" class="form-control" id="website"
+                        <input required type="text" name="website" class="form-control" id="website"
                                placeholder="examples https://sadad.com"
                                @if (isset($item))
                                value="{{$item->website}}"
@@ -117,7 +117,7 @@
                             <div id="product1" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="product_ar">product Ar: </label>
-                                    <input type="text" class="form-control" name="product_ar" id="product_ar"
+                                    <input required type="text" class="form-control" name="product_ar" id="product_ar"
                                            placeholder="product_ar"
                                            @if (isset($item))
                                            value="{{$item->product_ar}}"
@@ -128,7 +128,7 @@
                             <div id="product2" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="product_en">product En: </label>
-                                    <input type="text" name="product_en" class="form-control" id="product_en"
+                                    <input required type="text" name="product_en" class="form-control" id="product_en"
                                            placeholder="product_en"
                                            @if (isset($item))
                                            value="{{$item->product_en}}"
@@ -153,7 +153,7 @@
                             <div id="activity1" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="activity_ar">Activity Ar: </label>
-                                    <input type="text" class="form-control" name="activity_ar" id="activity_ar"
+                                    <input required type="text" class="form-control" name="activity_ar" id="activity_ar"
                                            placeholder="activity_ar"
                                            @if (isset($item))
                                            value="{{$item->activity_ar}}"
@@ -164,7 +164,7 @@
                             <div id="activity2" class="tab-pane fade">
                                 <div class="form-group">
                                     <label for="activity_en">Activity En: </label>
-                                    <input type="text" name="activity_en" class="form-control" id="activity_en"
+                                    <input required type="text" name="activity_en" class="form-control" id="activity_en"
                                            placeholder="activity_en"
                                            @if (isset($item))
                                            value="{{$item->activity_en}}"
@@ -178,7 +178,7 @@
                     {{--activity Ends--}}
                     <div class="form-group">
                         <label for="email">Email: </label>
-                        <input type="email" name="email" class="form-control" id="email"
+                        <input required type="email" name="email" class="form-control" id="email"
                                placeholder="Email"
                                @if (isset($item))
                                value="{{$item->email}}"
@@ -188,7 +188,7 @@
 
                     <div class="form-group">
                         <label for="phone">phone: </label>
-                        <input type="text" name="phone" class="form-control" id="phone"
+                        <input required type="text" name="phone" class="form-control" id="phone"
                                placeholder="phone"
                                @if (isset($item))
                                value="{{$item->phone}}"
@@ -197,7 +197,7 @@
 
                     <div class="form-group">
                         <label for="contact">country: </label>
-                        <input type="text" name="country" class="form-control" id="country"
+                        <input required type="text" name="country" class="form-control" id="country"
                                placeholder="country"
                                @if (isset($item))
                                value="{{$item->country}}"
@@ -206,7 +206,7 @@
 
                     <div class="form-group">
                         <label for="contact">fax: </label>
-                        <input type="text" name="fax" class="form-control" id="fax"
+                        <input required type="text" name="fax" class="form-control" id="fax"
                                placeholder="fax"
                                @if (isset($item))
                                value="{{$item->fax}}"
@@ -216,7 +216,7 @@
 
                     <div class="form-group">
                         <label for="address">address: </label>
-                        <input type="text" name="address" class="form-control" id="address"
+                        <input required type="text" name="address" class="form-control" id="address"
                                placeholder="address"
                                @if (isset($item))
                                value="{{$item->address}}"
