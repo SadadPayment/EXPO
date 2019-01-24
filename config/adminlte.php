@@ -109,6 +109,7 @@ return [
     */
 
     'menu' => [
+
         'Exhibition',
         [
             'text' => 'Exhibition',
@@ -129,6 +130,26 @@ return [
                     'text' => 'Add Exhibition Category',
                     'url' => 'CatExposition/create',
                 ],
+            ]
+        ],
+
+
+        'Setting',
+        [
+            'text' => 'Setting',
+            'url' => 'Setting',
+            'icon' => 'share',
+//            'label'       => 4,
+            'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'Show Setting',
+                    'url' => 'Setting',
+                ], [
+                    'text' => 'Add Setting',
+                    'url' => 'Setting/create',
+                ],
+
             ]
         ],
 
