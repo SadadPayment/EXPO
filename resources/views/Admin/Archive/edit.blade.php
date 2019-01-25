@@ -76,7 +76,7 @@
                     <div class="form-group col-md-6">
                         <label for="file_upload">File Upload: </label>
                         <input type="file" name="file_upload" class="form-control" id="file_upload"
-                               @if (isset($item))
+                               @if (!isset($item))
                                required
                                @endif
                                @if (isset($item))

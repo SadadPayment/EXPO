@@ -26,5 +26,5 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Suggestion extends Model
 {
-    protected $fillable = ['Username', 'suggest_title', 'suggest_topic'];
+    protected $fillable = ['Username', 'suggest_title', 'suggest_topic', 'phone'];
 }

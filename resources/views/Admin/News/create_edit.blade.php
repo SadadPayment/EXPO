@@ -95,9 +95,10 @@
                     <div class="form-group">
                         <label for="image">Image Upload: </label>
                         <input type="file" name="image" class="form-control" id="image"
-                               @if (isset($item))
+                               @if (!isset($item))
                                required
-                               @endif                               @if (isset($item))
+                               @endif
+                               @if (isset($item))
                                value="{{$item->image}}">
                         <img src="{{asset('/images/News/')}}/{{$item->image}}" height="50" width="50">
 

@@ -81,7 +81,7 @@
                     <div class="form-group col-md-6">
                         <label for="image">Image Upload: </label>
                         <input type="file" name="image" class="form-control" id="image"
-                               @if (isset($item))
+                               @if (!isset($item))
                                required
                                @endif
                                @if (isset($item))

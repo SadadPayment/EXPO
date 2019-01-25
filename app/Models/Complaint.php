@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Complaint extends Model
 {
-    protected $fillable = ['Username', 'claim_title', 'claim_topic'];
+    protected $fillable = ['Username', 'claim_title', 'claim_topic', 'phone'];
 
 }
 
