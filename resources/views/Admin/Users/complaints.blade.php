@@ -16,6 +16,9 @@
 @stop
 
 @section('content')
+    @if(!$Complaints)
+        <h1>No Data !</h1>
+    @endif
     <table class="table table-hover">
         <thead>
         <tr>
