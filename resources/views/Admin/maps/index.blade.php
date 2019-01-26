@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'News')
+@section('title', 'Maps')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Maps</h1>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -20,25 +20,19 @@
         <thead>
         <tr>
             <th scope="col">#id</th>
-            <th scope="col">Tile ar</th>
-            <th scope="col">Image</th>
-            <th scope="col">Topic ar</th>
-            <th scope="col">Date</th>
-            <th scope="col">تعديل\حذف</th>
+            <th scope="col">image</th>
+            <th scope="col">Edit/delete</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($News as $item)
+        @foreach($eMap as $item)
             <tr>
                 <th scope="row">{{$item->id}}</th>
-                <td>{{$item->Title_ar}}</td>
-                <td><img src="{{asset('/images/News/')}}/{{$item->image}}" height="50" width="50"></td>
-                <td>{{$item->topic_ar}}</td>
-                <td>{{$item->created_at}}</td>
+                <td><img src="{{asset('/images/maps/')}}/{{$item->image}}" height="60" width="60"></td>
                 <td>
-                    <a class="btn btn-waring btn-xs" href="News/{{$item->id}}/edit">
+                    <a class="btn btn-waring btn-xs" href="Maps/{{$item->id}}/edit">
                         <i class="fa fa-edit"></i></a>
-                    <form method="post" action="News/{{$item->id}}">
+                    <form method="post" action="Maps/{{$item->id}}">
                         <input type="hidden" name="_method" value="DELETE">
                         {{csrf_field()}}
                         <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>

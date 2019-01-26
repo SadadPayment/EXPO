@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\web;
 
-use App\Models\Setting;
+use App\Models\ExpoMap;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class SettingController extends Controller
+class ExpoMapsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +15,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $item = Setting::first();
-//        if ($item) {
-        return view('Admin.Setting.index', compact('item'));
-//        }
-//        return redirect()->back();
-
-    }
-
-    public function api()
-    {
-        $item = Setting::first();
-        return response()->json($item);
+        $eMap = ExpoMap::all();
+        return view('Admin.maps.index', compact('eMap'));
     }
 
     /**
@@ -35,8 +26,7 @@ class SettingController extends Controller
      */
     public function create()
     {
-        return view('Admin.Setting.edit');
-//        echo "ff";
+        return view('Admin.maps.edit');
     }
 
     /**
@@ -49,11 +39,16 @@ class SettingController extends Controller
     {
         $image = $this->saveImage($request);
         $request->request->add(['image' => $image]);
-        $Setting = new Setting($request->all());
-        $Setting->image = $image;
-        $Setting->save();
-        return redirect()->route('WebSetting.index')
-            ->with('success', 'Setting created successfully.');
+        $eMap = new ExpoMap($request->all());
+        $eMap->image = $image;
+        $eMap->save();
+        if ($request->is_notification == 1) {
+            $this->send_notification($request->Title_ar, $request->topic_ar);
+            return redirect()->route('Maps.index')
+                ->with('success', 'Map created successfully.');
+        }
+        return redirect()->route('Maps.index')
+            ->with('success', 'Maps created successfully.');
     }
 
     /**
@@ -64,8 +59,8 @@ class SettingController extends Controller
      */
     public function show($id)
     {
-        $item = Setting::findOrFail($id);
-        return view('Admin.Setting.item', compact('item'));
+        $eMap = ExpoMap::findOrFail($id);
+        return view('Admin.maps.edit', compact('eMap'));
     }
 
     /**
@@ -76,8 +71,8 @@ class SettingController extends Controller
      */
     public function edit($id)
     {
-        $item = Setting::findOrFail($id);
-        return view('Admin.Setting.edit', compact('item'));
+        $item = ExpoMap::findOrFail($id);
+        return view('Admin.maps.edit', compact('item'));
     }
 
     /**
@@ -89,18 +84,18 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Setting = Setting::findOrFail($id);
+        $eMap = ExpoMap::findOrFail($id);
         if ($request->hasFile('image')) {
             $image = $this->saveImage($request);
             $request->request->add(['image' => $image]);
-            $Setting->update($request->all());
-            $Setting->image = $image;
-            $Setting->save();
-            return redirect()->route('WebSetting.index')
+            $eMap->update($request->all());
+            $eMap->image = $image;
+            $eMap->save();
+            return redirect()->route('Maps.index')
                 ->with('success', 'updated successfully');
         }
-        $Setting->update($request->all());
-        return redirect()->route('WebSetting.index')
+        $eMap->update($request->all());
+        return redirect()->route('Maps.index')
             ->with('success', 'updated successfully');
     }
 
@@ -112,9 +107,9 @@ class SettingController extends Controller
      */
     public function destroy($id)
     {
-        Setting::destroy($id);
-        return redirect()->route('WebSetting.index')
-            ->with('field', 'Setting Deleted successfully.');
+        ExpoMap::destroy($id);
+        return redirect()->route('Maps.index')
+            ->with('field', 'Map Deleted successfully.');
     }
 
     public function saveImage($image_file)
@@ -122,7 +117,7 @@ class SettingController extends Controller
         if ($image_file->hasfile('image')) {
             $image = $image_file->file('image');
             $name = str_random() . '_expo' . ".jpg";
-            $image->move(public_path() . '/images/Setting' . '/', $name);
+            $image->move(public_path() . '/images/maps' . '/', $name);
             return $name;
         }
         return false;

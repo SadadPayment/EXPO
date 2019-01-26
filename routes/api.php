@@ -22,6 +22,8 @@ Route::prefix('v2')->group(function () {
     Route::resource('/sponsors', 'api\SponsorsController');
     Route::resource('/subscribers', 'api\SubscribersController');
     Route::resource('/suggestion', 'api\SuggestionController');
+    Route::get('/expo', 'SettingController@api');
+    Route::resource('/maps', 'api\ExpoMapsController');
 });
 
 

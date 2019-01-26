@@ -34,6 +34,8 @@ Route::resource('WebSetting', 'SettingController')->middleware('auth');
 
 Route::resource('Complaints', 'Users\ComplaintsController')->middleware('auth');
 Route::resource('Suggestions', 'Users\SuggestionsController')->middleware('auth');
+Route::resource('Notification', 'web\NotificationController')->middleware('auth');
+Route::resource('Maps', 'web\ExpoMapsController')->middleware('auth');
 
 //});
 //});
