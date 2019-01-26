@@ -8,7 +8,6 @@
 
 @section('content')
     {{--<div class="row">--}}
-    <a href="/Exposition/create" class="btn btn-facebook"><span class="ion ion-android-add"></span> </a>
 
 
     <div class="col-xs-8">

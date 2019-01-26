@@ -8,10 +8,10 @@
 ?>
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Archive')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Archive</h1>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -24,6 +24,8 @@
 @stop
 
 @section('content')
+    <a href="Archive/create" class="btn btn-facebook"><span class="ion ion-android-add"></span> </a>
+
     <table class="table table-hover">
         <thead>
         <tr>

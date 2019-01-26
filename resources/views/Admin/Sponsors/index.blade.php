@@ -12,6 +12,8 @@
 @stop
 
 @section('content')
+    <a href="Sponsors/create" class="btn btn-facebook"><span class="ion ion-android-add"></span> </a>
+
     <table class="table table-hover">
         <thead>
         <tr>
